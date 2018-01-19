@@ -6,19 +6,34 @@ const helloWorld string = "Hi %s %s, welcome to the awesome Golang world!\n"
 const testConst = "Test"
 
 func main() {
-	var name string
+	name := getName()
 	lastname := "Serna"
 
 	var number = 100
 
-	var (
-		a = 1
-		b = 2
-		c = 3
-	)
+	a, b, c := getVariables()
+
+	add := sum(a, b)
+
+	fmt.Printf(helloWorld, name, lastname)
+	fmt.Println(number, a, b, c, lastname)
+	fmt.Println(add)
+}
+
+func getName() string {
+	var name string
+	name = "Without name"
 
 	fmt.Print("Enter your name: ")
 	fmt.Scanf("%s", &name)
-	fmt.Printf(helloWorld, name, lastname)
-	fmt.Println(number, a, b, c, lastname)
+
+	return name
+}
+
+func getVariables() (int, int, int) {
+	return 1, 2, 3
+}
+
+func sum (a int, b int) int {
+	return a + b
 }
