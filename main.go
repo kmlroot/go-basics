@@ -12,12 +12,14 @@ func main() {
 	var number = 100
 
 	a, b, c := getVariables()
+	f32, f64 := getFloat()
 
 	add := sum(a, b)
 
 	fmt.Printf(helloWorld, name, lastname)
 	fmt.Println(number, a, b, c, lastname)
 	fmt.Println(add)
+	fmt.Println(f32, f64)
 }
 
 func getName() string {
@@ -34,6 +36,10 @@ func getVariables() (int, int, int) {
 	return 1, 2, 3
 }
 
-func sum (a int, b int) int {
+func getFloat() (float32, float64) {
+	return float32(0.1), float64(float32(0.1))
+}
+
+func sum(a int, b int) int {
 	return a + b
 }
