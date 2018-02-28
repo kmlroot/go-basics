@@ -25,6 +25,7 @@ func main() {
 	fmt.Println(f32, f64)
 
 	string2()
+	switchTest()
 }
 
 func getName() string {
@@ -55,4 +56,24 @@ func string2() {
 	fmt.Println(strings.ToLower(text))
 	fmt.Println(strings.Replace(text, "Alba", "Luz Albita", -1))
 	fmt.Println(strings.Split(text, ","))
+}
+
+func switchTest() {
+	var number = 0
+	fmt.Print("[Switch] Enter a number from 1 to 10: ")
+	fmt.Scanf("%d", &number)
+
+	switch number {
+	case 1:
+		fmt.Println("The number is 1")
+	default:
+		fmt.Println("The number isn't 1")
+	}
+
+	switch {
+	case number%2 == 0:
+		fmt.Println("The number is even")
+	default:
+		fmt.Println("The number is odd")
+	}
 }
