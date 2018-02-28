@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 const helloWorld string = "Hi %s %s, welcome to the awesome Golang world!\n"
 const testConst = "Test"
@@ -20,6 +23,8 @@ func main() {
 	fmt.Println(number, a, b, c, lastname)
 	fmt.Println(add)
 	fmt.Println(f32, f64)
+
+	string2()
 }
 
 func getName() string {
@@ -42,4 +47,12 @@ func getFloat() (float32, float64) {
 
 func sum(a int, b int) int {
 	return a + b
+}
+
+func string2() {
+	var text = "Mauricio Serna, Alba Florez, Hello Golang"
+	fmt.Println(strings.ToUpper(text))
+	fmt.Println(strings.ToLower(text))
+	fmt.Println(strings.Replace(text, "Alba", "Luz Albita", -1))
+	fmt.Println(strings.Split(text, ","))
 }
