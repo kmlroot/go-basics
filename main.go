@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"strings"
 
 	"github.com/fmauricios/go-basics/flow"
 	"github.com/fmauricios/go-basics/name"
@@ -29,14 +28,6 @@ func main() {
 	fmt.Println(add)
 	fmt.Println(f32, f64)
 
-	string2()
+	name.String2()
 	flow.SwitchTest()
-}
-
-func string2() {
-	var text = "Mauricio Serna, Alba Florez, Hello Golang"
-	fmt.Println(strings.ToUpper(text))
-	fmt.Println(strings.ToLower(text))
-	fmt.Println(strings.Replace(text, "Alba", "Luz Albita", -1))
-	fmt.Println(strings.Split(text, ","))
 }
