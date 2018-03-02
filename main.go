@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/fmauricios/go-basics/flow"
+	"github.com/fmauricios/go-basics/maps"
 	"github.com/fmauricios/go-basics/name"
 	"github.com/fmauricios/go-basics/numbers"
 )
@@ -30,4 +31,6 @@ func main() {
 
 	name.String2()
 	flow.SwitchTest()
+
+	fmt.Println(maps.GetMap("Mauricio"))
 }
