@@ -9,6 +9,18 @@ import (
 	"github.com/fmauricios/go-basics/numbers"
 )
 
+// Course struct
+type Course struct {
+	Name   string
+	Slug   string
+	Skills []string
+}
+
+// Career struct -> Course
+type Career struct {
+	Course
+}
+
 const helloWorld string = "Hi %s %s, welcome to the awesome Golang world!\n"
 const testConst = "Test"
 
@@ -33,4 +45,13 @@ func main() {
 	flow.SwitchTest()
 
 	fmt.Println(maps.GetMap("Mauricio"))
+
+	course := Course{Name: "Golang", Slug: "golang", Skills: []string{"1", "2"}}
+	course1 := new(Course)
+
+	course1.Name = "Golang1"
+	course1.Slug = "golang1"
+	course1.Skills = []string{"backend1"}
+
+	fmt.Println(course)
 }
