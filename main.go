@@ -16,6 +16,10 @@ type Course struct {
 	Skills []string
 }
 
+func (c Course) Subscribe(name string) {
+	fmt.Println("La persona %s se ha registrado al curso %s", name, c.Name)
+}
+
 // Career struct -> Course
 type Career struct {
 	Course
@@ -47,8 +51,9 @@ func main() {
 	fmt.Println(maps.GetMap("Mauricio"))
 
 	course := Course{Name: "Golang", Slug: "golang", Skills: []string{"1", "2"}}
-	course1 := new(Course)
+	course.Subscribe("Mauricio")
 
+	course1 := new(Course)
 	course1.Name = "Golang1"
 	course1.Slug = "golang1"
 	course1.Skills = []string{"backend1"}
