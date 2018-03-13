@@ -23,11 +23,11 @@ func main() {
 	a, b, c := numbers.GetVariables()
 	f32, f64 := numbers.GetFloat()
 
-	add := numbers.Sum(a, b)
+	// add := numbers.Sum(a, b)
 
 	fmt.Printf(helloWorld, firstName, lastname)
 	fmt.Println(number, a, b, c, lastname)
-	fmt.Println(add)
+	// fmt.Println(add)
 	fmt.Println(f32, f64)
 
 	name.String2()
@@ -36,4 +36,12 @@ func main() {
 	fmt.Println(maps.GetMap("Mauricio"))
 
 	structs.InterfaceTest()
+
+	number2, err := numbers.Sum(50, 50)
+
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println(number2)
 }
