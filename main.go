@@ -44,4 +44,25 @@ func main() {
 	}
 
 	fmt.Println(number2)
+
+	pointerTest()
+}
+
+func pointerTest() {
+	a := 100
+	var b *int
+	b = &a
+
+	fmt.Println("Without modifitication")
+
+	fmt.Println(a, *b)
+	fmt.Println(&a, b)
+
+	pointerModify(b)
+
+}
+
+func pointerModify(c *int) {
+	*c = 10
+	fmt.Println("With modification")
 }
