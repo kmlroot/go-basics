@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 
 	"github.com/fmauricios/go-basics/flow"
 	"github.com/fmauricios/go-basics/maps"
@@ -46,6 +47,10 @@ func main() {
 	fmt.Println(number2)
 
 	pointerTest()
+
+	go forGo(500)
+	go forGo(400)
+	time.Sleep(10000 * time.Millisecond)
 }
 
 func pointerTest() {
@@ -59,7 +64,16 @@ func pointerTest() {
 	fmt.Println(&a, b)
 
 	pointerModify(b)
+}
 
+func helloGo(index int) {
+	fmt.Println("Println in helloGo Go rutine #", index)
+}
+
+func forGo(n int) {
+	for i := 0; i < n; i++ {
+		go helloGo(i)
+	}
 }
 
 func pointerModify(c *int) {
