@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net"
+	"strings"
 	"time"
 )
 
@@ -38,11 +39,28 @@ func handle(conn net.Conn) {
 	scanner := bufio.NewScanner(conn)
 
 	for scanner.Scan() {
-		text := scanner.Text()
-		fmt.Println(text)
+		text := strings.ToLower(scanner.Text())
+		bs := []byte(text)
+		c := cypher13(bs)
+
+		fmt.Fprintf(conn, "%s - %s \n\n", text, c)
 	}
 
 	defer conn.Close()
 
 	fmt.Println("finished")
+}
+
+func cypher13(bs []byte) []byte {
+	c := make([]byte, len(bs))
+
+	for i, v := range bs {
+		if v <= 109 {
+			c[i] = v + 13
+		} else {
+			c[i] = v - 13
+		}
+	}
+
+	return c
 }
