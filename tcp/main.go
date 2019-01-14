@@ -8,9 +8,6 @@ import (
 	"time"
 )
 
-// Instructions
-// go run main.go
-// open another terminal and run telnet localhost 8080
 func main() {
 	listener, err := net.Listen("tcp", ":8080")
 
@@ -46,4 +43,6 @@ func handle(conn net.Conn) {
 	}
 
 	defer conn.Close()
+
+	fmt.Println("finished")
 }
