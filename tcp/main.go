@@ -1,15 +1,15 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
-	"io"
 	"log"
 	"net"
 )
 
 // Instructions
 // go run main.go
-// open another terminal and run curl http://localhost:8080
+// open another terminal and run telnet localhost 8080
 // you should see the result Hello!Hey!
 func main() {
 	listener, err := net.Listen("tcp", ":8080")
@@ -23,13 +23,21 @@ func main() {
 	for {
 		conn, err := listener.Accept()
 
-		defer conn.Close()
-
 		if err != nil {
 			log.Println("connection error")
 		}
 
-		io.WriteString(conn, "Hello!")
-		fmt.Fprintln(conn, "Hey!")
+		go handle(conn)
 	}
+}
+
+func handle(conn net.Conn) {
+	scanner := bufio.NewScanner(conn)
+
+	for scanner.Scan() {
+		text := scanner.Text()
+		fmt.Println(text)
+	}
+
+	defer conn.Close()
 }
