@@ -5,12 +5,12 @@ import (
 	"fmt"
 	"log"
 	"net"
+	"time"
 )
 
 // Instructions
 // go run main.go
 // open another terminal and run telnet localhost 8080
-// you should see the result Hello!Hey!
 func main() {
 	listener, err := net.Listen("tcp", ":8080")
 
@@ -32,6 +32,12 @@ func main() {
 }
 
 func handle(conn net.Conn) {
+	err := conn.SetDeadline(time.Now().Add(10 * time.Second))
+
+	if err != nil {
+		log.Println("connection timeout")
+	}
+
 	scanner := bufio.NewScanner(conn)
 
 	for scanner.Scan() {
